@@ -77,10 +77,10 @@
     border-radius: var(--radius); font-size: 0.75rem; color: var(--muted); text-align: center;
   }
   .checklist { list-style: none; padding: 0; }
-  .checklist li { padding: 5px 0 5px 26px; position: relative; font-size: 0.88rem; }
-  .checklist li::before {
-    content: ''; position: absolute; left: 0; top: 9px;
-    width: 14px; height: 14px; border: 2px solid var(--border); border-radius: 3px; background: white;
+  .checklist li { padding: 5px 0; font-size: 0.88rem; display: flex; align-items: flex-start; gap: 8px; }
+  .checklist input[type="checkbox"] {
+    width: 18px; height: 18px; margin-top: 3px; flex-shrink: 0;
+    accent-color: var(--accent); cursor: pointer;
   }
   details { margin: 6px 0; }
   details summary { cursor: pointer; font-weight: 600; font-size: 0.9rem; padding: 8px 0; color: var(--accent); }
@@ -220,11 +220,11 @@
 <h3>면담 끝나고 바로 할 것</h3>
 <div class="card">
   <ul class="checklist">
-    <li>복도에서 바로 음성 메모 &mdash; 기억나는 내용 전부 녹음</li>
-    <li>산정특례 등록 확인 (원무과)</li>
-    <li>사회사업팀 상담 예약 (1577-2299 내선) &mdash; 지원 프로그램 안내</li>
-    <li>PET-CT 결과 언제 나오는지 확인</li>
-    <li>면담 내용 가족에게 공유</li>
+    <li><input type="checkbox"><span>복도에서 바로 음성 메모 &mdash; 기억나는 내용 전부 녹음</span></li>
+    <li><input type="checkbox"><span>산정특례 등록 확인 (원무과)</span></li>
+    <li><input type="checkbox"><span>사회사업팀 상담 예약 (1577-2299 내선) &mdash; 지원 프로그램 안내</span></li>
+    <li><input type="checkbox"><span>PET-CT 결과 언제 나오는지 확인</span></li>
+    <li><input type="checkbox"><span>면담 내용 가족에게 공유</span></li>
   </ul>
 </div>
 

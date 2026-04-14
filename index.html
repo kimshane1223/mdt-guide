@@ -3,48 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>아버지 치료 준비</title>
+<title>내일 면담 질문지</title>
 <style>
   :root {
-    --bg: #f8f9fa;
-    --surface: #ffffff;
-    --text: #1a1a2e;
-    --muted: #6c757d;
-    --accent: #2b5797;
-    --accent-light: #e8eef6;
-    --danger: #c0392b;
-    --danger-light: #fdf0ef;
-    --hope: #1e7e34;
-    --hope-light: #eaf6ec;
-    --warn: #b8860b;
-    --warn-light: #fef9ed;
-    --border: #dee2e6;
-    --radius: 10px;
+    --bg: #f8f9fa; --surface: #fff; --text: #1a1a2e; --muted: #6c757d;
+    --accent: #2b5797; --accent-light: #e8eef6;
+    --danger: #c0392b; --danger-light: #fdf0ef;
+    --hope: #1e7e34; --hope-light: #eaf6ec;
+    --warn: #b8860b; --warn-light: #fef9ed;
+    --border: #dee2e6; --radius: 10px;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin:0; padding:0; box-sizing:border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
     background: var(--bg); color: var(--text);
     line-height: 1.75; padding: 16px; max-width: 720px; margin: 0 auto; font-size: 15px;
   }
-  h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 4px; }
-  .subtitle { font-size: 0.85rem; color: var(--muted); margin-bottom: 12px; padding-bottom: 12px; border-bottom: 2px solid var(--border); }
-  .reading-guide {
-    background: var(--accent-light); border: 1px solid var(--accent);
-    border-radius: var(--radius); padding: 12px 16px; margin-bottom: 20px; font-size: 0.88rem;
-  }
+  h1 { font-size: 1.4rem; font-weight: 800; margin-bottom: 2px; }
+  .subtitle { font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
   h2 {
-    font-size: 1.15rem; font-weight: 700; margin: 28px 0 10px;
+    font-size: 1.1rem; font-weight: 700; margin: 24px 0 10px;
     padding: 8px 12px; background: var(--accent); color: white; border-radius: 6px;
   }
-  h3 { font-size: 1rem; font-weight: 700; margin: 18px 0 8px; color: var(--accent); }
+  h3 { font-size: 1rem; font-weight: 700; margin: 16px 0 8px; color: var(--accent); }
   .card {
     background: var(--surface); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px;
   }
   .card-danger { border-left: 4px solid var(--danger); background: var(--danger-light); }
   .card-warn { border-left: 4px solid var(--warn); background: var(--warn-light); }
-  .card-hope { border-left: 4px solid var(--hope); background: var(--hope-light); }
   .card-accent { border-left: 4px solid var(--accent); background: var(--accent-light); }
   .tag {
     display: inline-block; font-size: 0.65rem; font-weight: 700;
@@ -52,7 +39,6 @@
   }
   .tag-danger { background: var(--danger); color: white; }
   .tag-warn { background: var(--warn); color: white; }
-  .tag-hope { background: var(--hope); color: white; }
   .tag-accent { background: var(--accent); color: white; }
   table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.88rem; }
   th, td { padding: 7px 10px; text-align: left; border-bottom: 1px solid var(--border); }
@@ -64,17 +50,9 @@
   .q-num { font-weight: 800; color: var(--accent); margin-right: 4px; }
   .q-text { font-weight: 600; font-size: 0.95rem; margin-bottom: 3px; }
   .q-why { font-size: 0.82rem; color: var(--muted); }
-  .flow {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 16px; margin: 12px 0;
-    font-family: 'SF Mono', 'Consolas', monospace; font-size: 0.8rem;
-    line-height: 1.6; white-space: pre-wrap; word-break: break-all; color: var(--text);
-  }
-  .highlight { background: #fff3cd; padding: 1px 4px; border-radius: 3px; font-weight: 600; }
-  .divider { border: none; border-top: 2px solid var(--border); margin: 24px 0; }
-  .footer {
-    margin-top: 28px; padding: 14px; background: #f1f3f5;
-    border-radius: var(--radius); font-size: 0.75rem; color: var(--muted); text-align: center;
+  .tldr {
+    background: #fff3cd; border: 2px solid var(--warn);
+    border-radius: var(--radius); padding: 12px 16px; margin-bottom: 14px; font-size: 0.9rem;
   }
   .checklist { list-style: none; padding: 0; }
   .checklist li { padding: 5px 0; font-size: 0.88rem; display: flex; align-items: flex-start; gap: 8px; }
@@ -85,10 +63,17 @@
   details { margin: 6px 0; }
   details summary { cursor: pointer; font-weight: 600; font-size: 0.9rem; padding: 8px 0; color: var(--accent); }
   details[open] summary { margin-bottom: 6px; }
-  .tldr {
-    background: #fff3cd; border: 2px solid var(--warn);
-    border-radius: var(--radius); padding: 12px 16px; margin-bottom: 14px; font-size: 0.9rem;
+  .divider { border: none; border-top: 2px solid var(--border); margin: 20px 0; }
+  .footer {
+    margin-top: 24px; padding: 12px; background: #f1f3f5;
+    border-radius: var(--radius); font-size: 0.75rem; color: var(--muted); text-align: center;
   }
+  .link-card {
+    background: var(--accent-light); border: 1px solid var(--accent);
+    border-radius: var(--radius); padding: 10px 16px; margin-bottom: 14px;
+    font-size: 0.85rem; text-align: center;
+  }
+  .link-card a { color: var(--accent); font-weight: 700; }
   @media print {
     body { padding: 10px; font-size: 11pt; }
     .card, .q-box { break-inside: avoid; }
@@ -96,7 +81,7 @@
   }
   @media (max-width: 480px) {
     body { padding: 10px; font-size: 14px; }
-    h1 { font-size: 1.3rem; }
+    h1 { font-size: 1.2rem; }
     table { font-size: 0.82rem; display: block; overflow-x: auto; }
     th, td { padding: 5px 7px; }
   }
@@ -104,346 +89,127 @@
 </head>
 <body>
 
-<h1>아버지 치료 준비</h1>
-<p class="subtitle">내일(4/14) 면담 준비 + 배경지식</p>
+<h1>내일 면담 질문지</h1>
+<p class="subtitle">4/15(화) 종양내과 심선진 교수님 첫 면담</p>
 
-<div class="reading-guide">
-  <strong>읽는 순서 안내:</strong> 오늘 밤은 <strong>PART 1(내일 면담 준비)만 읽으면 됩니다.</strong> PART 2 이후는 궁금할 때 참고하세요. 남자친구가 옆에서 같이 설명해줄 거예요.
+<div class="link-card">
+  배경지식 + 비용 + 응급신호는 <a href="study.html">공부용 페이지</a>를 참고하세요
 </div>
 
 <!-- ============================================================ -->
-<h2>PART 1. 내일 면담 준비</h2>
+<h2>PART 0. 오늘 밤 병동에서 확인</h2>
 <!-- ============================================================ -->
 
-<div class="card card-accent">
-  <span class="tag tag-accent">내일 일정</span>
-  <table>
-    <tr><td><strong>오전</strong></td><td>PET-CT 검사 &mdash; 암이 어디까지 퍼졌는지 전신 확인</td></tr>
-    <tr><td><strong>면담</strong></td><td><strong>종양내과 교수님</strong> &mdash; 항암 치료 방향 논의</td></tr>
-    <tr><td><strong>오후 2:30</strong></td><td>방사선종양학과 교수님 &mdash; 등뼈(흉추) 방사선치료 설명</td></tr>
-  </table>
-</div>
-
-<div class="card card-warn">
-  <span class="tag tag-warn">면담 전 꼭 읽기</span>
-  <p><strong>녹음하세요.</strong> 면담 시작 전에 "가족에게 설명하려고 녹음해도 될까요? 가족 내부 참고용으로만 쓰겠습니다"라고 여쭤보세요. 허락하시면 녹음 시작. 거절하시면 면담 끝나고 복도에서 바로 음성 메모로 기억나는 내용을 녹음하세요.</p>
-  <p style="margin-top:8px;">메모는 끝나고 하면 됩니다. <strong>면담 중에는 듣는 데 집중하세요.</strong></p>
-</div>
-
-<div class="tldr">
-  <strong>시간이 없으면 이 3개만 물어보세요:</strong><br>
-  1. MSI 검사 결과 나왔나요?<br>
-  2. 유전자 검사(NGS) 해볼 수 있나요?<br>
-  3. 통증 관리를 어떻게 할 수 있나요?
-</div>
-
-<!-- 종양내과 질문 -->
-<h3>종양내과 교수님에게 물어볼 것</h3>
-
-<div class="q-box">
-  <p class="q-text"><span class="q-num">1.</span> MSI 검사 결과가 나왔는지 궁금합니다</p>
-  <p class="q-why">이 검사 결과가 치료 방향을 완전히 바꿀 수 있어요. MSI-H(불안정)라는 결과가 나오면 면역항암제(키트루다)를 쓸 수 있고, 효과가 매우 좋습니다(반응률 40~50%). 소장암 환자의 15~35%가 해당돼서 확률이 낮지 않아요. 아직 안 했다면 "언제 할 수 있나요?"라고 물어보세요.</p>
-</div>
-
-<div class="q-box">
-  <p class="q-text"><span class="q-num">2.</span> 유전자 검사를 해볼 수 있는지 여쭤보고 싶습니다</p>
-  <p class="q-why">암세포의 유전자를 분석해서 맞춤 치료를 찾는 검사(NGS)입니다. 환자의 20~30%에서 치료할 수 있는 표적이 발견돼요. 길병원이 국가 정밀의료 프로그램(K-MASTER)에 참여하고 있어서 "K-MASTER 의뢰도 가능한가요?"라고 함께 물어보세요.</p>
-</div>
-
-<div class="q-box">
-  <p class="q-text"><span class="q-num">3.</span> 선생님께서 십이지장 선암을 치료해보신 경험이 있으신가요?</p>
-  <p class="q-why">십이지장 선암은 매우 희귀한 암(전체 위장관 암의 1% 미만)이라 경험이 중요합니다. 부담스러우면 "이 암은 워낙 드물다고 들었는데, 저희가 알아야 할 특이한 점이 있을까요?"로 돌려서 물어봐도 됩니다.</p>
-</div>
-
-<div class="q-box">
-  <p class="q-text"><span class="q-num">4.</span> 항암 치료는 어떤 약으로 하실 계획이신가요?</p>
-  <p class="q-why">교수님이 설명해주시면, 아래 두 가지를 확인해보세요:</p>
-  <p class="q-why">&bull; <strong>"먹는 약이 포함되나요?"</strong> &mdash; 이전에 십이지장 수술을 하셔서, 먹는 약이 위장에서 제대로 흡수되지 않을 수 있어요</p>
-  <p class="q-why">&bull; 만약 아바스틴(Bevacizumab)이라는 약 이름이 나오면 &mdash; "이전 수술 때문에 장에 구멍이 날 위험은 없나요?"라고 확인해보세요</p>
-</div>
-
-<div class="q-box">
-  <p class="q-text"><span class="q-num">5.</span> 뼈가 약해지는 걸 막는 치료가 있다고 들었는데, 아버지도 해당되나요?</p>
-  <p class="q-why">뼈에 암이 퍼지면 뼈가 약해져서 부러질 수 있어요. 이걸 막는 주사 치료가 있고 보험도 됩니다(본인부담 5%). 시작 전에 치과를 먼저 가야 한다고 하니(턱뼈 부작용 예방) 그것도 확인하세요.</p>
-</div>
-
-<div class="q-box">
-  <p class="q-text"><span class="q-num">6.</span> 통증 관리를 어떻게 하면 좋을까요?</p>
-  <p class="q-why">아버지가 허리 통증을 참고 계세요. 일반 진통제는 위장 문제로 못 드시고, 마약성 진통제는 울렁거림이 심해서 거부하고 계세요. "다른 방법이 있나요?"라고 물어봐주세요. 피부에 붙이는 패치형 진통제나, 신경 통증에 듣는 다른 약이 있을 수 있어요.</p>
-</div>
-
-<div class="q-box">
-  <p class="q-text"><span class="q-num">7.</span> 황달 위험은 없나요?</p>
-  <p class="q-why">암이 있는 위치(십이지장 2번째 부위)가 담즙이 나오는 출구 근처라, 종양이 담도를 눌러서 황달이 올 수 있어요. 황달이 있으면 항암을 바로 시작하지 못할 수 있습니다. 또한 이전 수술로 해부학이 바뀌어서, 담도가 막히면 일반적인 내시경 시술이 어려울 수 있다고 합니다.</p>
-</div>
-
-<div class="q-box">
-  <p class="q-text"><span class="q-num">8.</span> 산정특례 등록이 되어 있나요?</p>
-  <p class="q-why">암 진단 시 등록하면 치료비 본인부담이 <strong>5%</strong>로 줄어듭니다. 소득/재산 조건 없이 암 확진만으로 대상이에요. 아직 안 됐으면 원무과에서 바로 신청할 수 있어요.</p>
-  <p class="q-why" style="margin-top:4px;"><strong>중요:</strong> 확진 후 <strong>30일 이내</strong>에 신청하면 확진일부터 소급 적용되고, 이미 낸 치료비 차액을 환급받을 수 있어요. 30일이 지나면 신청일부터만 적용돼요. <strong>빨리 확인하세요.</strong></p>
-</div>
-
-<details>
-  <summary>시간이 더 있으면 물어볼 것 (터치해서 펼치기)</summary>
-  <div class="card">
-    <table>
-      <tr><td><strong>9</strong></td><td>임상시험에 참여할 수 있는 옵션이 있나요?</td></tr>
-      <tr><td><strong>10</strong></td><td>장거리 이동을 하고 계신데 활동 제한이 필요한가요?</td></tr>
-      <tr><td><strong>11</strong></td><td>혈전(피가 뭉치는 것) 예방 치료가 필요한가요?</td></tr>
-    </table>
-  </div>
-</details>
-
-<!-- 방사선종양학과 질문 -->
-<h3>방사선종양학과 교수님에게 물어볼 것 (오후 2:30)</h3>
-
-<div class="q-box">
-  <p class="q-text"><span class="q-num">1.</span> 정밀 방사선치료가 가능한지 궁금합니다</p>
-  <p class="q-why">정밀 방사선(SBRT)은 1~5회 치료로 국소 통제율이 94%입니다. 길병원에 가능한 장비가 있어요.</p>
-</div>
-
-<div class="q-box">
-  <p class="q-text"><span class="q-num">2.</span> 통증을 먼저 잡기 위해 방사선을 먼저 할 수 있나요?</p>
-  <p class="q-why">1회 치료만으로도 60~80% 환자에서 48시간 내 통증이 줄어듭니다. 지금 통증을 참고 계시니 빠른 완화가 가능한지 확인해주세요.</p>
-</div>
-
-<div class="q-box">
-  <p class="q-text"><span class="q-num">3.</span> 뼈가 약해져서 일상생활에 위험한 정도인지 확인이 됐나요?</p>
-  <p class="q-why">등뼈에 암이 퍼지면 운전이나 앉는 것만으로도 뼈가 부러질 수 있어요. 안정성 평가가 됐는지, 보조기(코르셋 같은 것)가 필요한지 확인해주세요.</p>
-</div>
-
-<div class="q-box">
-  <p class="q-text"><span class="q-num">4.</span> 방사선치료의 부작용은 어떤 것이 있나요?</p>
-  <p class="q-why">등뼈 부위라 식도나 척수에 영향이 있을 수 있습니다. 이미 울렁거림이 있는 상태라 추가 부작용이 걱정돼요.</p>
-</div>
-
-<!-- 면담 후 체크리스트 -->
-<h3>면담 끝나고 바로 할 것</h3>
-<div class="card">
+<div class="card card-danger">
+  <span class="tag tag-danger">간호사/전공의에게 물어보세요</span>
   <ul class="checklist">
-    <li><input type="checkbox"><span>복도에서 바로 음성 메모 &mdash; 기억나는 내용 전부 녹음</span></li>
-    <li><input type="checkbox"><span>산정특례 등록 확인 (원무과)</span></li>
-    <li><input type="checkbox"><span>사회사업팀 상담 예약 (1577-2299 내선) &mdash; 지원 프로그램 안내</span></li>
-    <li><input type="checkbox"><span>PET-CT 결과 언제 나오는지 확인</span></li>
-    <li><input type="checkbox"><span>면담 내용 가족에게 공유</span></li>
+    <li><input type="checkbox"><span><strong>척추 MRI</strong> — "다리가 뻐근한 증상이 있는데, 척추 MRI를 안 찍어봐도 되는 건가요?" (척수 눌림 배제)</span></li>
+    <li><input type="checkbox"><span><strong>혈전 예방 주사</strong> — "혈전 예방 주사 맞고 있나요?" (암 환자 입원 시 필수)</span></li>
+    <li><input type="checkbox"><span><strong>통증 약</strong> — "아버지 지금 통증 약으로 뭘 드시고 있어요?" (아무것도 없으면 대안 요청)</span></li>
+    <li><input type="checkbox"><span><strong>칼슘 수치</strong> — "입원 피검사에서 칼슘 수치 정상인가요?" (뼈 전이 시 높아질 수 있음)</span></li>
   </ul>
 </div>
 
 <hr class="divider">
 
 <!-- ============================================================ -->
-<h2>PART 2. 배경지식</h2>
+<h2>PART 1. 내일 면담 — 종양내과 심선진 교수님</h2>
 <!-- ============================================================ -->
-
-<p style="font-size:0.85rem; color:var(--muted); margin-bottom:12px;">궁금할 때 참고하세요. 지금 다 읽지 않아도 됩니다.</p>
-
-<h3>현재 상황 정리</h3>
-<div class="card">
-  <table>
-    <tr><th style="width:35%">항목</th><th>내용</th></tr>
-    <tr><td>병명</td><td><strong>십이지장 선암</strong> &mdash; 소장(십이지장)에 생긴 암</td></tr>
-    <tr><td>이전 수술</td><td>십이지장 4번째 구역 수술 완료</td></tr>
-    <tr><td>새로 발견</td><td>십이지장 <strong>2번째 구역</strong>에서 암 확인</td></tr>
-    <tr><td>등뼈(흉추)</td><td>전이 의심 &mdash; MRI 촬영 완료, 통증 있음</td></tr>
-    <tr><td>입원</td><td>가천대 길병원 (인천)</td></tr>
-    <tr><td>내일 검사</td><td><strong>PET-CT</strong> &mdash; 전이 범위 확인</td></tr>
-  </table>
-</div>
-
-<!-- 희망 사례를 먼저 -->
-<h3>적극적 치료로 나은 사례가 있습니다</h3>
-<div class="card card-hope">
-  <span class="tag tag-hope">실제 의학 문헌에 보고된 사례</span>
-  <p style="margin-bottom:8px;">십이지장 선암은 희귀암(전체 위장관 암의 1% 미만)이지만, 적극적으로 치료하면 <strong>완전관해(암이 사라진 상태)</strong>에 도달한 사례들이 있습니다:</p>
-  <table>
-    <tr><th>치료</th><th>결과</th></tr>
-    <tr><td>항암 + 표적치료 + 방사선</td><td><strong>완전관해</strong>, 재발 없음</td></tr>
-    <tr><td>표적치료 + 항암</td><td>재발 후에도 <strong>8년 무병 생존</strong></td></tr>
-    <tr><td>항암 6회</td><td>간/림프절 전이 소실, <strong>완전관해</strong></td></tr>
-  </table>
-  <p style="font-size:0.78rem; color:var(--muted); margin-top:6px;">모두 개별 사례이며 모든 환자에게 동일 결과를 보장하지 않지만, <strong>적극적 치료가 효과를 보인 실제 기록</strong>입니다.</p>
-</div>
-
-<div class="card">
-  <p>지금 가장 중요한 것은 <span class="highlight">MSI 검사</span>와 <span class="highlight">유전자 검사(NGS)</span>를 통해 아버지에게 맞는 최적의 치료를 찾는 것입니다. 이 결과에 따라 쓸 수 있는 약이 완전히 달라져요.</p>
-</div>
-
-<h3>앞으로의 갈림길</h3>
-<div class="card">
-  <p><strong>내일 PET-CT 결과</strong>가 치료 방향을 결정합니다:</p>
-  <div class="flow">PET-CT 결과
-├── 전이가 제한적 (1~2곳)
-│   → 수술 가능성 검토
-│   → 수술 + 항암
-│
-└── 전이가 넓음
-    → 수술 어려움
-    → 항암 + 방사선 + 표적/면역치료
-
-별도로:
-MSI 검사
-├── MSI-H (불안정) → 면역항암제 사용 가능
-└── MSS (안정) → 유전자 검사로 다른 표적 찾기</div>
-</div>
-
-<details>
-  <summary>치료 옵션 상세 (터치해서 펼치기)</summary>
-
-  <div class="card">
-    <p><strong>항암화학요법</strong></p>
-    <table>
-      <tr><th>이름</th><th>특징</th></tr>
-      <tr><td><strong>FOLFOX</strong></td><td>정맥주사. 가장 많이 쓰이는 1차 조합. 손발 저림(신경병증)이 누적될 수 있음 &mdash; 증상 생기면 바로 말씀하세요</td></tr>
-      <tr><td>CAPOX/XELOX</td><td>일부 먹는 약 포함 &mdash; 수술 이력 때문에 흡수 문제 가능</td></tr>
-      <tr><td>SOX</td><td>아시아에서 많이 사용. 역시 먹는 약 포함</td></tr>
-    </table>
-    <p style="font-size:0.8rem; color:var(--muted); margin-top:6px;">어떤 약을 쓸지는 교수님이 설명해주실 거예요.</p>
-    <p style="font-size:0.8rem; color:var(--muted); margin-top:4px;">참고: 이전 수술로 <strong>덤핑 증후군</strong>(식후 어지러움, 식은땀, 설사, 저혈당)이 항암 중 악화될 수 있어요. 이런 증상이 있으면 교수님께 말씀드리고 영양 상담을 요청하세요.</p>
-  </div>
-
-  <div class="card">
-    <p><strong>방사선치료</strong> (등뼈 병변)</p>
-    <table>
-      <tr><th>종류</th><th>특징</th></tr>
-      <tr><td><strong>SBRT(정밀)</strong></td><td>1~5회. 국소 통제율 94%. 골절 위험 9%</td></tr>
-      <tr><td>일반 방사선</td><td>범위 넓어도 가능. 통증 완화에 효과적</td></tr>
-      <tr><td>양성자치료</td><td>주변 장기 손상 적음. 비급여(1,500~4,000만원). 길병원에 없음</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <p><strong>면역항암제 / 표적치료제</strong> (검사 결과에 따라)</p>
-    <table>
-      <tr><th>조건</th><th>약</th></tr>
-      <tr><td>MSI-H</td><td>키트루다 &mdash; 보험 적용</td></tr>
-      <tr><td>HER2 양성</td><td>엔허투</td></tr>
-      <tr><td>NTRK 변이</td><td>라로트렉티닙</td></tr>
-    </table>
-    <p style="font-size:0.8rem; color:var(--muted); margin-top:6px;">이 약들을 쓸 수 있는지는 MSI/NGS 검사 결과로 결정됩니다.</p>
-  </div>
-</details>
-
-<h3>통증 &mdash; 참을 필요 없습니다</h3>
-<div class="card">
-  <p>아버지가 통증을 참고 계시지만, <strong>방법이 있습니다:</strong></p>
-  <table>
-    <tr><th>방법</th><th>설명</th></tr>
-    <tr><td><strong>펜타닐 패치</strong></td><td>피부에 붙이는 진통제. 먹지 않아서 울렁거림 적음. 보험 적용</td></tr>
-    <tr><td><strong>항구토제와 함께</strong></td><td>이전에 울렁거렸던 건 항구토제를 같이 안 써서일 수 있음</td></tr>
-    <tr><td><strong>가바펜틴</strong></td><td>신경이 눌려서 오는 통증에 효과적. 보험 적용</td></tr>
-    <tr><td><strong>완화적 방사선</strong></td><td>1회로 통증 60~80% 감소. 빠르면 48시간 효과</td></tr>
-    <tr><td><strong>척추체성형술</strong></td><td>30분 시술. 통증 70~90% 감소 (적응증 해당 시)</td></tr>
-  </table>
-</div>
-
-<hr class="divider">
-
-<!-- ============================================================ -->
-<h2>PART 3. 응급 신호</h2>
-<!-- ============================================================ -->
-
-<div class="card" style="margin-bottom:8px;">
-  <p style="font-size:0.85rem;">지금 아버지에게 이런 증상이 있다는 뜻이 <strong>아닙니다.</strong> 혹시 모를 상황에 대비하는 체크리스트예요. 알아두면 만약의 경우에 빠르게 대응할 수 있습니다.</p>
-</div>
-
-<div class="card card-danger">
-  <span class="tag tag-danger">이런 증상이 나타나면 즉시 응급실</span>
-  <table>
-    <tr><td><strong>다리 힘이 갑자기 빠짐</strong></td><td>척수가 눌렸을 가능성</td></tr>
-    <tr><td><strong>소변/대변 조절이 안 됨</strong></td><td>척수가 눌렸을 가능성</td></tr>
-    <tr><td><strong>팔다리 감각이 갑자기 달라짐</strong></td><td>척수가 눌렸을 가능성</td></tr>
-    <tr><td><strong>눈 흰자위가 노래짐</strong></td><td>담도 막힘(황달)</td></tr>
-    <tr><td><strong>갑작스러운 심한 복통</strong></td><td>담도/췌장 문제</td></tr>
-  </table>
-  <p style="margin-top:8px; font-size:0.85rem;">특히 <strong>다리 힘 빠짐 + 대소변 장애</strong>는 시간이 중요합니다. 입원 중이라 의료진이 바로 대응할 수 있어요.</p>
-</div>
 
 <div class="card card-warn">
-  <span class="tag tag-warn">참고</span>
-  <p>등뼈 전이가 의심되는 상태에서 <strong>장거리 운전은 위험</strong>할 수 있습니다. 내일 방사선 교수님 면담에서 활동 제한 여부를 확인하세요.</p>
+  <span class="tag tag-warn">면담 전 꼭 읽기</span>
+  <p><strong>녹음하세요.</strong> "가족에게 설명하려고 녹음해도 될까요? 가족 내부 참고용으로만 쓰겠습니다." 거절하시면 면담 끝나고 복도에서 바로 음성 메모.</p>
+  <p style="margin-top:6px;"><strong>교수님 설명을 끝까지 먼저 듣고</strong>, 빠진 것만 질문하세요. 첫 만남입니다.</p>
 </div>
 
-<hr class="divider">
-
-<!-- ============================================================ -->
-<h2>PART 4. 병원 정보 + 비용</h2>
-<!-- ============================================================ -->
-
-<div class="card">
-  <p><strong>가천대 길병원</strong> &mdash; 인천 상급종합병원, 전국 지역암센터 평가 <strong>3년 연속 1위</strong></p>
-  <table>
-    <tr><td>방사선 장비</td><td>TrueBeam + Novalis Tx (정밀 방사선 가능)</td></tr>
-    <tr><td>유전자 검사</td><td>자체 운영</td></tr>
-    <tr><td>정밀의료 프로그램</td><td>K-MASTER 참여 기관</td></tr>
-    <tr><td>완화의료</td><td>호스피스센터 운영</td></tr>
-  </table>
-  <p style="font-size:0.8rem; color:var(--muted); margin-top:6px;">표준 항암, 방사선, 통증 관리는 길병원에서 충분히 가능합니다.</p>
+<div class="tldr">
+  <strong>시간이 없으면 이 3개만:</strong><br>
+  1. MSI 검사 결과 나왔나요?<br>
+  2. 통증 관리 어떻게 하면 되나요?<br>
+  3. 뼈 보호 주사 필요한가요?
 </div>
 
-<div class="card">
-  <h3>산정특례 등록 시 (본인부담 5%)</h3>
-  <table>
-    <tr><td>항암치료</td><td>급여 (5%)</td></tr>
-    <tr><td>방사선치료</td><td>급여 (5%)</td></tr>
-    <tr><td>검사 (PET-CT, MRI 등)</td><td>급여 (5%)</td></tr>
-    <tr><td>면역항암제 (MSI-H일 때)</td><td>급여 (5%)</td></tr>
-    <tr><td>뼈 보호 주사</td><td>급여 (5%)</td></tr>
-  </table>
+<div class="q-box">
+  <p class="q-text"><span class="q-num">1.</span> MSI 검사 결과가 혹시 나왔는지 여쭤봐도 될까요? 아직이면 대략 언제쯤 나올 수 있는지도요.</p>
+  <p class="q-why">이 결과 하나가 치료 방향을 완전히 바꿀 수 있어요. MSI-H(불안정)이면 면역항암제(키트루다)를 쓸 수 있고, 효과가 매우 좋습니다. 할머니가 MSI-H이셨기 때문에 아버지도 해당될 가능성이 있어요.</p>
 </div>
 
-<div class="card card-accent">
-  <span class="tag tag-accent">추가 지원</span>
-  <table>
-    <tr><th>제도</th><th>내용</th><th>연락처</th></tr>
-    <tr><td><strong>재난적 의료비</strong></td><td>연간 최대 5,000만원</td><td>1577-1000</td></tr>
-    <tr><td><strong>본인부담상한제</strong></td><td>연간 상한 초과분 환급</td><td>건강보험 앱</td></tr>
-    <tr><td><strong>길병원 사회사업팀</strong></td><td>맞춤 지원 연결</td><td>1577-2299</td></tr>
-    <tr><td><strong>국가암정보센터</strong></td><td>종합 안내</td><td>1577-8899</td></tr>
-  </table>
+<div class="q-box">
+  <p class="q-text"><span class="q-num">2.</span> 뼈 쪽으로 통증이 좀 있으신데, 항암 치료 하시면서 통증 관리는 어떤 식으로 하면 좋을까요?</p>
+  <p class="q-why">일반 진통제는 위장 문제로 못 드시고, 마약성 진통제는 울렁거림이 심해서 거부하고 계세요. 다른 방법(패치형 진통제, 신경 통증 약 등)이 있는지 확인해주세요.</p>
 </div>
 
-<hr class="divider">
+<div class="q-box">
+  <p class="q-text"><span class="q-num">3.</span> 혹시 뼈 보호 주사 같은 것도 필요한지, 필요하다면 치과를 미리 가봐야 하는지 여쭤봐도 될까요?</p>
+  <p class="q-why">뼈에 암이 퍼지면 골절 위험이 있어요. 보호 주사 시작 전에 턱뼈 부작용 예방 때문에 치과 검진이 필요하다고 들었습니다. 치과가 1~2주 걸리니 빨리 확인해야 해요.</p>
+</div>
 
-<!-- ============================================================ -->
-<h2>PART 5. 용어 사전</h2>
-<!-- ============================================================ -->
+<div class="q-box">
+  <p class="q-text"><span class="q-num">4.</span> 저희가 이전 기록을 정리하다 보니, 2017년에 항암 치료를 받으셨는지 저희도 헷갈리는 부분이 있어서요. 선생님 쪽에서 확인해주실 수 있을까요?</p>
+  <p class="q-why">이전에 어떤 약을 쓰셨는지가 이번 약 선택에 영향을 줄 수 있어요. 2009년 분당서울대에서 받은 항암 기록도 필요한지 여쭤봐주세요.</p>
+</div>
+
+<div class="q-box">
+  <p class="q-text"><span class="q-num">5.</span> 혹시 MSI 결과에 따라서 면역항암제를 쓸 수 있는 경우, 보험 적용이 어떻게 되는지 미리 알 수 있을까요?</p>
+  <p class="q-why">2026년 1월부터 MSI-H 소장암에 키트루다 급여가 시작됐다고 들었는데, 어떤 조건에서 보험이 되는지 확인이 필요합니다.</p>
+</div>
 
 <details>
-  <summary>용어가 헷갈릴 때 펼쳐보세요</summary>
+  <summary>시간이 더 있으면 (터치해서 펼치기)</summary>
   <div class="card">
     <table>
-      <tr><th style="width:28%">용어</th><th>뜻</th></tr>
-      <tr><td><strong>십이지장</strong></td><td>위 바로 아래 소장의 첫 부분(약 25cm)</td></tr>
-      <tr><td><strong>선암</strong></td><td>장기 안쪽 점막에서 생기는 암</td></tr>
-      <tr><td><strong>전이</strong></td><td>암이 원래 부위에서 다른 곳으로 퍼진 것</td></tr>
-      <tr><td><strong>흉추</strong></td><td>등 뒤쪽 척추뼈 (가슴 높이)</td></tr>
-      <tr><td><strong>PET-CT</strong></td><td>암이 어디까지 퍼졌는지 전신을 보는 검사</td></tr>
-      <tr><td><strong>MSI-H</strong></td><td>암세포 DNA 수리가 고장난 상태. 면역항암제가 잘 듣는다</td></tr>
-      <tr><td><strong>NGS</strong></td><td>유전자 검사. 암의 약점(표적)을 찾는 검사</td></tr>
-      <tr><td><strong>FOLFOX</strong></td><td>정맥주사 항암제 조합 (가장 흔히 쓰임)</td></tr>
-      <tr><td><strong>SBRT</strong></td><td>정밀 방사선치료. 1~5회로 끝남</td></tr>
-      <tr><td><strong>키트루다</strong></td><td>면역항암제. MSI-H일 때 사용 가능</td></tr>
-      <tr><td><strong>바터 팽대부</strong></td><td>십이지장 2번째 부위에 있는 출구. 담즙이 여기로 나옴</td></tr>
-      <tr><td><strong>ERCP</strong></td><td>내시경으로 담도를 치료하는 시술</td></tr>
-      <tr><td><strong>산정특례</strong></td><td>암 등록 시 치료비 본인부담 5%로 줄어드는 제도</td></tr>
-      <tr><td><strong>완전관해</strong></td><td>검사에서 암이 발견되지 않는 상태</td></tr>
-      <tr><td><strong>다학제 진료</strong></td><td>여러 과 전문의가 모여 치료 방향을 논의 (목요일 예정)</td></tr>
-      <tr><td><strong>덤핑 증후군</strong></td><td>위/소장 수술 후 식사가 빨리 내려가서 생기는 증상 (어지러움, 식은땀)</td></tr>
+      <tr><td><strong>6</strong></td><td>유전자 검사(NGS) 결과는 언제쯤 나오나요?</td></tr>
+      <tr><td><strong>7</strong></td><td>치료 시작 시기가 얼마나 급한지 여쭤봐도 될까요?</td></tr>
+      <tr><td><strong>8</strong></td><td>항암 치료는 어떤 약으로 하실 계획이신가요? (먹는 약이 포함되면 — 이전 수술 때문에 흡수가 걱정됩니다)</td></tr>
     </table>
   </div>
 </details>
 
 <hr class="divider">
 
-<div class="card card-hope">
-  <span class="tag tag-hope">기억해주세요</span>
-  <p><strong>포기할 단계가 아닙니다.</strong> 적극적으로 치료한 환자들 중 완전관해를 달성한 사례가 있습니다. 지금 가장 중요한 것은 <span class="highlight">MSI 검사</span>와 <span class="highlight">유전자 검사</span> 결과를 빨리 확인하는 것이에요.</p>
-  <p style="margin-top:8px;">내일 면담은 좋은 기회입니다. 녹음 켜두고, 차분하게, 하나씩 물어보세요. 잘 할 수 있어요.</p>
+<!-- ============================================================ -->
+<h2>PART 2. 면담 끝나고 바로 할 것</h2>
+<!-- ============================================================ -->
+
+<div class="card">
+  <ul class="checklist">
+    <li><input type="checkbox"><span>복도에서 바로 <strong>음성 메모</strong> — 기억나는 내용 전부 녹음</span></li>
+    <li><input type="checkbox"><span><strong>산정특례 등록 확인</strong> (원무과) — 확진 후 30일 이내 신청 시 소급 적용, 이미 낸 돈 환급 가능</span></li>
+    <li><input type="checkbox"><span><strong>사회사업팀 방문</strong> (1577-2299 내선) — 재난적 의료비, 긴급복지 등 한꺼번에 안내</span></li>
+    <li><input type="checkbox"><span><strong>치과 예약</strong> — 뼈 보호 주사 처방되면 반드시 (턱뼈 부작용 예방)</span></li>
+    <li><input type="checkbox"><span><strong>다음 진료 일정</strong> 확인/예약</span></li>
+    <li><input type="checkbox"><span><strong>검사 결과지/처방전 사본</strong> 수령</span></li>
+    <li><input type="checkbox"><span>면담 내용 <strong>가족에게 공유</strong></span></li>
+  </ul>
+</div>
+
+<hr class="divider">
+
+<!-- ============================================================ -->
+<h2>PART 3. 역할 분배 — 이번 주</h2>
+<!-- ============================================================ -->
+
+<div class="card">
+  <h3>상은이 (병원에서)</h3>
+  <table>
+    <tr><td>내일</td><td>면담 질문 + 원무과 산정특례 + 사회사업팀 + 치과 예약</td></tr>
+    <tr><td>목요일</td><td>다학제 진료 (1:20 PM) 참석</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3>남자친구 (집/전화)</h3>
+  <table>
+    <tr><td>분당서울대 2009 기록</td><td>의무기록 사본 요청 (환자 <strong>위임장 + 신분증 사본</strong> 필요. 온라인 가능 여부 먼저 확인)</td></tr>
+    <tr><td>실손보험</td><td>가입 여부 + 보장 범위 확인</td></tr>
+    <tr><td>129</td><td>긴급복지지원 전화 신청</td></tr>
+    <tr><td>1577-1000</td><td>재난적 의료비 지원 문의</td></tr>
+    <tr><td>1600-5500</td><td>채무조정(신용회복위원회) 상담</td></tr>
+  </table>
 </div>
 
 <div class="footer">
-  <p>공개된 의학 문헌 기반 참고 자료입니다. 의료 결정은 반드시 담당 전문의와 상의하세요.<br>
-  2026년 4월 13일 작성</p>
+  <p>2026년 4월 14일 작성 | 공개 의학 문헌 기반 참고 자료<br>의료 결정은 반드시 담당 전문의와 상의하세요</p>
 </div>
 
 </body>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>배경지식 + 비용 + 응급신호</title>
+<style>
+  :root {
+    --bg: #f8f9fa; --surface: #fff; --text: #1a1a2e; --muted: #6c757d;
+    --accent: #2b5797; --accent-light: #e8eef6;
+    --danger: #c0392b; --danger-light: #fdf0ef;
+    --hope: #1e7e34; --hope-light: #eaf6ec;
+    --warn: #b8860b; --warn-light: #fef9ed;
+    --border: #dee2e6; --radius: 10px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.75; padding: 16px; max-width: 720px; margin: 0 auto; font-size: 15px;
+  }
+  h1 { font-size: 1.4rem; font-weight: 800; margin-bottom: 2px; }
+  .subtitle { font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+  .reading-guide {
+    background: var(--accent-light); border: 1px solid var(--accent);
+    border-radius: var(--radius); padding: 12px 16px; margin-bottom: 20px; font-size: 0.88rem;
+  }
+  h2 {
+    font-size: 1.1rem; font-weight: 700; margin: 24px 0 10px;
+    padding: 8px 12px; background: var(--accent); color: white; border-radius: 6px;
+  }
+  h3 { font-size: 1rem; font-weight: 700; margin: 16px 0 8px; color: var(--accent); }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px;
+  }
+  .card-danger { border-left: 4px solid var(--danger); background: var(--danger-light); }
+  .card-warn { border-left: 4px solid var(--warn); background: var(--warn-light); }
+  .card-hope { border-left: 4px solid var(--hope); background: var(--hope-light); }
+  .card-accent { border-left: 4px solid var(--accent); background: var(--accent-light); }
+  .tag {
+    display: inline-block; font-size: 0.65rem; font-weight: 700;
+    padding: 2px 7px; border-radius: 3px; margin-bottom: 4px; letter-spacing: 0.3px;
+  }
+  .tag-danger { background: var(--danger); color: white; }
+  .tag-warn { background: var(--warn); color: white; }
+  .tag-hope { background: var(--hope); color: white; }
+  .tag-accent { background: var(--accent); color: white; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.88rem; }
+  th, td { padding: 7px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { background: #f1f3f5; font-weight: 600; font-size: 0.78rem; color: var(--muted); }
+  .flow {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px; margin: 12px 0;
+    font-family: 'SF Mono', 'Consolas', monospace; font-size: 0.8rem;
+    line-height: 1.6; white-space: pre-wrap; word-break: break-all; color: var(--text);
+  }
+  .highlight { background: #fff3cd; padding: 1px 4px; border-radius: 3px; font-weight: 600; }
+  .divider { border: none; border-top: 2px solid var(--border); margin: 24px 0; }
+  .footer {
+    margin-top: 24px; padding: 12px; background: #f1f3f5;
+    border-radius: var(--radius); font-size: 0.75rem; color: var(--muted); text-align: center;
+  }
+  details { margin: 6px 0; }
+  details summary { cursor: pointer; font-weight: 600; font-size: 0.9rem; padding: 8px 0; color: var(--accent); }
+  details[open] summary { margin-bottom: 6px; }
+  .link-card {
+    background: var(--accent-light); border: 1px solid var(--accent);
+    border-radius: var(--radius); padding: 10px 16px; margin-bottom: 14px;
+    font-size: 0.85rem; text-align: center;
+  }
+  .link-card a { color: var(--accent); font-weight: 700; }
+  @media print {
+    body { padding: 10px; font-size: 11pt; }
+    .card { break-inside: avoid; }
+    h2 { background: none; color: var(--accent); border: 2px solid var(--accent); }
+  }
+  @media (max-width: 480px) {
+    body { padding: 10px; font-size: 14px; }
+    h1 { font-size: 1.2rem; }
+    table { font-size: 0.82rem; display: block; overflow-x: auto; }
+    th, td { padding: 5px 7px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>배경지식 + 비용 + 응급신호</h1>
+<p class="subtitle">궁금할 때 참고하세요. 한번에 다 읽지 않아도 됩니다.</p>
+
+<div class="link-card">
+  면담 질문지는 <a href="index.html">여기</a>를 참고하세요
+</div>
+
+<!-- ============================================================ -->
+<h2>1. 현재 상황 (4/14 확정)</h2>
+<!-- ============================================================ -->
+
+<div class="card">
+  <table>
+    <tr><th style="width:30%">항목</th><th>내용</th></tr>
+    <tr><td>병명</td><td><strong>십이지장 선암</strong> (재발) &mdash; 4기 확정</td></tr>
+    <tr><td>이전 수술</td><td>2017년 십이지장 4번째 구역 수술 (김건국 교수님)</td></tr>
+    <tr><td>새로 발견</td><td>십이지장 2번째 구역에 다발성 종양</td></tr>
+    <tr><td>전이</td><td><strong>뼈 다발 전이</strong> &mdash; 척추(여러 곳), 왼쪽 어깨뼈(견갑골), 골반 (PET-CT 확인)</td></tr>
+    <tr><td>임파선</td><td>복부 임파선 커져 있음</td></tr>
+    <tr><td>수술</td><td><strong>지금은 불가</strong> &mdash; 항암으로 병변 줄여야 수술 가능</td></tr>
+    <tr><td>치료 방향</td><td><strong>항암 먼저</strong> → 필요시 방사선 추가. 종양내과(심선진 교수님)로 전과</td></tr>
+    <tr><td>린치증후군</td><td><strong>강하게 의심</strong> &mdash; 할머니 MSI-H, 가족 유전검사 필요</td></tr>
+    <tr><td>MSI 검사</td><td>결과 대기 중</td></tr>
+    <tr><td>입원</td><td>가천대 길병원 (인천)</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3>아버지 전체 암 이력</h3>
+  <table>
+    <tr><th>시기</th><th>암종</th><th>치료</th><th>병원</th></tr>
+    <tr><td>2009</td><td>대장암</td><td>수술 + 항암 12회</td><td>분당서울대 + 충대</td></tr>
+    <tr><td>2014</td><td>육종암</td><td>수술 + 방사선 31회</td><td>길병원 + 충대</td></tr>
+    <tr><td>2017</td><td>십이지장암 (4구역)</td><td>수술</td><td>길병원</td></tr>
+    <tr><td>2026</td><td>십이지장암 (2구역) 재발 + 뼈 전이</td><td>항암 예정</td><td>길병원</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ -->
+<h2>2. 희망이 있는 이유</h2>
+<!-- ============================================================ -->
+
+<div class="card card-hope">
+  <span class="tag tag-hope">적극 치료로 나은 실제 사례</span>
+  <p style="margin-bottom:8px;">십이지장 선암은 희귀암이지만, 적극적으로 치료하면 <strong>완전관해(암이 사라진 상태)</strong>에 도달한 사례들이 의학 문헌에 보고되어 있습니다:</p>
+  <table>
+    <tr><th>치료</th><th>결과</th></tr>
+    <tr><td>항암 + 표적치료 + 방사선</td><td><strong>완전관해</strong>, 재발 없음</td></tr>
+    <tr><td>표적치료 + 항암</td><td>재발 후에도 <strong>8년 무병 생존</strong></td></tr>
+    <tr><td>항암 6회</td><td>간/림프절 전이 소실, <strong>완전관해</strong></td></tr>
+  </table>
+  <p style="font-size:0.78rem; color:var(--muted); margin-top:6px;">모두 개별 사례이며 모든 환자에게 동일 결과를 보장하지 않지만, 적극적 치료가 효과를 보인 실제 기록입니다.</p>
+</div>
+
+<div class="card card-accent">
+  <span class="tag tag-accent">린치증후군이 확인되면</span>
+  <p>할머니가 MSI-H이셨고 아버지에게도 린치증후군이 확인되면, <strong>면역항암제(키트루다)를 쓸 수 있는 가능성이 높아집니다.</strong> 면역항암제는 기존 항암보다 반응률이 좋고, 일부 환자에서 장기 생존 사례가 보고되고 있어요. 지금 MSI 검사 결과를 기다리는 이유가 바로 이것입니다.</p>
+</div>
+
+<div class="card">
+  <p>지금 가장 중요한 것은 <span class="highlight">MSI 검사</span>와 <span class="highlight">유전자 검사(NGS)</span> 결과를 빨리 확인하는 것이에요. 이 결과에 따라 쓸 수 있는 약이 완전히 달라집니다.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2>3. 앞으로의 갈림길</h2>
+<!-- ============================================================ -->
+
+<div class="card">
+  <p><strong>치료 방향은 MSI 결과에 따라 갈립니다:</strong></p>
+  <div class="flow">MSI 검사 결과
+├── MSI-H (불안정)
+│   → 면역항암제(키트루다) 사용 가능
+│   → 할머니도 MSI-H → 린치증후군 가능성 높음
+│   → 보험 적용 가능 (조건 확인 필요)
+│
+└── MSS (안정)
+    → 표준 항암(FOLFOX 등) 진행
+    → NGS로 다른 치료 표적 찾기
+
+치료 순서 (확정):
+항암 먼저 → 반응 보고 → 방사선 추가 여부 판단
+→ 병변 줄어들면 수술 가능성도 열림</div>
+</div>
+
+<!-- ============================================================ -->
+<h2>4. 린치증후군이란</h2>
+<!-- ============================================================ -->
+
+<div class="card">
+  <p><strong>린치증후군</strong>은 유전성 암 증후군 중 가장 흔한 것 중 하나예요. 유전자(MMR 유전자)에 변이가 있어서 특정 암에 걸리기 쉬워지는 것입니다.</p>
+  <table>
+    <tr><th>항목</th><th>내용</th></tr>
+    <tr><td>원인</td><td>MMR 유전자(MLH1, MSH2 등) 변이</td></tr>
+    <tr><td>잘 걸리는 암</td><td>대장암, 소장(십이지장)암, 위암, 자궁내막암 등</td></tr>
+    <tr><td>유전 방식</td><td>50% 확률로 자녀에게 전달</td></tr>
+    <tr><td>아버지 해당?</td><td>대장암(2009) + 십이지장암(2017, 2026) + 할머니 MSI-H → <strong>강하게 의심</strong></td></tr>
+  </table>
+</div>
+
+<div class="card card-warn">
+  <span class="tag tag-warn">가족이 알아야 할 것</span>
+  <p>린치증후군이 확인되면 <strong>직계 가족(자녀, 형제)도 유전자 검사를 받아야 합니다.</strong> 50% 확률로 같은 변이가 있을 수 있어요.</p>
+  <p style="margin-top:6px;">무서운 이야기로 들릴 수 있지만, <strong>알면 예방할 수 있어요.</strong> 정기 검진(대장내시경 등)으로 암을 조기에 잡거나 예방할 수 있습니다. 구체적인 검사 절차는 아버지 유전검사 결과가 나온 후에 진행하면 됩니다.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2>5. 치료 옵션</h2>
+<!-- ============================================================ -->
+
+<details>
+  <summary>항암화학요법 (터치해서 펼치기)</summary>
+  <div class="card">
+    <table>
+      <tr><th>이름</th><th>특징</th></tr>
+      <tr><td><strong>FOLFOX</strong></td><td>정맥주사. 가장 많이 쓰이는 1차 조합. 손발 저림(신경병증)이 누적될 수 있음 &mdash; 증상 생기면 바로 교수님께</td></tr>
+      <tr><td>CAPOX/XELOX</td><td>일부 먹는 약 포함 &mdash; 이전 수술로 흡수 문제 가능</td></tr>
+      <tr><td>SOX</td><td>아시아에서 많이 사용. 역시 먹는 약 포함</td></tr>
+    </table>
+    <p style="font-size:0.8rem; color:var(--muted); margin-top:6px;">이전 수술로 <strong>덤핑 증후군</strong>(식후 어지러움, 식은땀, 설사, 저혈당)이 항암 중 악화될 수 있어요. 증상이 있으면 교수님께 말씀드리고 영양 상담을 요청하세요.</p>
+  </div>
+</details>
+
+<details>
+  <summary>면역항암제 / 표적치료제 (터치해서 펼치기)</summary>
+  <div class="card">
+    <table>
+      <tr><th>조건</th><th>약</th></tr>
+      <tr><td>MSI-H</td><td>키트루다 (면역항암제) &mdash; 보험 적용 가능 (2차 치료부터)</td></tr>
+      <tr><td>HER2 양성</td><td>엔허투</td></tr>
+      <tr><td>NTRK 변이</td><td>라로트렉티닙</td></tr>
+    </table>
+    <p style="font-size:0.8rem; color:var(--muted); margin-top:6px;">MSI/NGS 검사 결과로 결정됩니다. 키트루다는 <strong>2차 이상 치료에서 보험 급여</strong>(본인부담 5%). 1차 치료 시 비급여 가능성 있으므로 교수님께 확인 필요.</p>
+  </div>
+</details>
+
+<details>
+  <summary>방사선치료 (터치해서 펼치기)</summary>
+  <div class="card">
+    <table>
+      <tr><th>종류</th><th>특징</th></tr>
+      <tr><td><strong>SBRT(정밀)</strong></td><td>1~5회. 국소 통제율 94%. 골절 위험 9%</td></tr>
+      <tr><td>일반 방사선</td><td>범위 넓어도 가능. 통증 완화에 효과적</td></tr>
+      <tr><td>양성자치료</td><td>주변 장기 손상 적음. 비급여(1,500~4,000만원). 길병원에 없음</td></tr>
+    </table>
+    <p style="font-size:0.8rem; color:var(--muted); margin-top:6px;">현재 방사선종양학과 교수님은 "급하지 않다, 항암 먼저"라고 하셨어요. 항암 반응을 보고 판단합니다.</p>
+  </div>
+</details>
+
+<h3>통증 &mdash; 참을 필요 없습니다</h3>
+<div class="card">
+  <table>
+    <tr><th>방법</th><th>설명</th></tr>
+    <tr><td><strong>펜타닐 패치</strong></td><td>피부에 붙이는 진통제. 먹지 않아서 울렁거림 적음. 보험 적용</td></tr>
+    <tr><td><strong>항구토제와 함께</strong></td><td>이전에 울렁거렸던 건 항구토제를 같이 안 써서일 수 있음</td></tr>
+    <tr><td><strong>가바펜틴</strong></td><td>신경이 눌려서 오는 통증에 효과적. 보험 적용</td></tr>
+    <tr><td><strong>완화적 방사선</strong></td><td>1회로 통증 60~80% 감소. 빠르면 48시간 효과</td></tr>
+    <tr><td><strong>척추체성형술</strong></td><td>30분 시술. 통증 70~90% 감소 (적응증 해당 시)</td></tr>
+  </table>
+</div>
+
+<hr class="divider">
+
+<!-- ============================================================ -->
+<h2>6. 응급 신호</h2>
+<!-- ============================================================ -->
+
+<div class="card" style="margin-bottom:8px;">
+  <p style="font-size:0.85rem;">지금 아버지에게 이런 증상이 있다는 뜻이 <strong>아닙니다.</strong> 혹시 모를 상황에 대비하는 체크리스트예요. 입원 중이라 의료진이 바로 대응할 수 있어요.</p>
+</div>
+
+<div class="card card-danger">
+  <span class="tag tag-danger">이런 증상이 나타나면 즉시 의료진 호출</span>
+  <table>
+    <tr><td><strong>다리 힘이 갑자기 빠짐</strong></td><td>척수가 눌렸을 가능성</td></tr>
+    <tr><td><strong>소변/대변 조절이 안 됨</strong></td><td>척수가 눌렸을 가능성</td></tr>
+    <tr><td><strong>팔다리 감각이 갑자기 달라짐</strong></td><td>척수가 눌렸을 가능성</td></tr>
+    <tr><td><strong>눈 흰자위가 노래짐</strong></td><td>담도 막힘(황달)</td></tr>
+    <tr><td><strong>갑작스러운 심한 복통</strong></td><td>담도/췌장 문제</td></tr>
+    <tr><td><strong>종아리 한쪽이 붓고 아픔</strong></td><td>혈전(DVT) 가능성</td></tr>
+    <tr><td><strong>심한 갈증 + 무기력 + 혼돈</strong></td><td>고칼슘혈증 가능성</td></tr>
+  </table>
+</div>
+
+<div class="card card-warn">
+  <span class="tag tag-warn">참고</span>
+  <p>뼈 전이가 여러 곳 있는 상태에서 <strong>장거리 운전이나 무리한 활동은 위험</strong>할 수 있어요. 퇴원 전 교수님께 활동 범위를 꼭 확인하세요.</p>
+</div>
+
+<hr class="divider">
+
+<!-- ============================================================ -->
+<h2>7. 병원 정보</h2>
+<!-- ============================================================ -->
+
+<div class="card">
+  <p><strong>가천대 길병원</strong> &mdash; 인천 상급종합병원, 전국 지역암센터 평가 <strong>3년 연속 1위</strong></p>
+  <table>
+    <tr><td>방사선 장비</td><td>TrueBeam + Novalis Tx (정밀 방사선 가능)</td></tr>
+    <tr><td>유전자 검사</td><td>자체 운영</td></tr>
+    <tr><td>정밀의료</td><td>K-MASTER 참여 기관</td></tr>
+    <tr><td>완화의료</td><td>호스피스센터 운영</td></tr>
+  </table>
+  <p style="font-size:0.8rem; color:var(--muted); margin-top:6px;">표준 항암, 방사선, 통증 관리는 길병원에서 충분히 가능합니다.</p>
+</div>
+
+<hr class="divider">
+
+<!-- ============================================================ -->
+<h2>8. 비용 / 지원제도</h2>
+<!-- ============================================================ -->
+
+<div class="card">
+  <h3>산정특례 등록 시 (본인부담 5%)</h3>
+  <p style="font-size:0.82rem; color:var(--muted); margin-bottom:6px;">소득/재산 무관. 암 확진만으로 대상. <strong>확진 후 30일 이내 신청하면 소급 적용.</strong></p>
+  <table>
+    <tr><td>항암치료</td><td>급여 (5%)</td></tr>
+    <tr><td>방사선치료</td><td>급여 (5%)</td></tr>
+    <tr><td>검사 (PET-CT, MRI 등)</td><td>급여 (5%)</td></tr>
+    <tr><td>면역항암제 (조건 충족 시)</td><td>급여 (5%)</td></tr>
+    <tr><td>뼈 보호 주사</td><td>급여 (5%)</td></tr>
+  </table>
+</div>
+
+<div class="card card-accent">
+  <span class="tag tag-accent">추가 지원 프로그램</span>
+  <table>
+    <tr><th>제도</th><th>내용</th><th>연락처</th></tr>
+    <tr><td><strong>재난적 의료비</strong></td><td>연간 최대 5,000만원 (소득 기준)</td><td>1577-1000</td></tr>
+    <tr><td><strong>본인부담상한제</strong></td><td>연간 상한 초과분 환급</td><td>건강보험 앱</td></tr>
+    <tr><td><strong>긴급복지지원</strong></td><td>소득 끊김 시 생계+의료비 즉시 지원</td><td>129</td></tr>
+    <tr><td><strong>채무조정</strong></td><td>질병 사유 최대 3년 상환유예</td><td>1600-5500</td></tr>
+    <tr><td><strong>길병원 사회사업팀</strong></td><td>맞춤 지원 연결</td><td>1577-2299</td></tr>
+    <tr><td><strong>국가암정보센터</strong></td><td>종합 안내</td><td>1577-8899</td></tr>
+  </table>
+</div>
+
+<hr class="divider">
+
+<!-- ============================================================ -->
+<h2>9. 용어 사전</h2>
+<!-- ============================================================ -->
+
+<details>
+  <summary>용어가 헷갈릴 때 펼쳐보세요</summary>
+  <div class="card">
+    <table>
+      <tr><th style="width:28%">용어</th><th>뜻</th></tr>
+      <tr><td><strong>십이지장</strong></td><td>위 바로 아래 소장의 첫 부분(약 25cm)</td></tr>
+      <tr><td><strong>선암</strong></td><td>장기 안쪽 점막에서 생기는 암</td></tr>
+      <tr><td><strong>전이</strong></td><td>암이 원래 부위에서 다른 곳으로 퍼진 것</td></tr>
+      <tr><td><strong>PET-CT</strong></td><td>암이 어디까지 퍼졌는지 전신을 보는 검사</td></tr>
+      <tr><td><strong>MSI-H</strong></td><td>암세포 DNA 수리가 고장난 상태. 면역항암제가 잘 듣는다</td></tr>
+      <tr><td><strong>린치증후군</strong></td><td>유전성 암 증후군. MMR 유전자 변이. 대장/소장암 위험 증가</td></tr>
+      <tr><td><strong>NGS</strong></td><td>유전자 검사. 암의 약점(표적)을 찾는 검사</td></tr>
+      <tr><td><strong>FOLFOX</strong></td><td>정맥주사 항암제 조합 (가장 흔히 쓰임)</td></tr>
+      <tr><td><strong>키트루다</strong></td><td>면역항암제. MSI-H일 때 사용 가능</td></tr>
+      <tr><td><strong>SBRT</strong></td><td>정밀 방사선치료. 1~5회로 끝남</td></tr>
+      <tr><td><strong>ERCP</strong></td><td>내시경으로 담도를 치료하는 시술</td></tr>
+      <tr><td><strong>산정특례</strong></td><td>암 등록 시 치료비 본인부담 5%로 줄어드는 제도</td></tr>
+      <tr><td><strong>완전관해</strong></td><td>검사에서 암이 발견되지 않는 상태</td></tr>
+      <tr><td><strong>다학제 진료</strong></td><td>여러 과 전문의가 모여 치료 방향을 논의 (목요일 예정)</td></tr>
+      <tr><td><strong>덤핑 증후군</strong></td><td>위/소장 수술 후 식사가 빨리 내려가서 생기는 증상</td></tr>
+      <tr><td><strong>DVT(심부정맥혈전증)</strong></td><td>다리 혈관에 피떡이 생기는 것. 폐로 가면 위험</td></tr>
+    </table>
+  </div>
+</details>
+
+<hr class="divider">
+
+<div class="card card-hope">
+  <span class="tag tag-hope">기억해주세요</span>
+  <p><strong>포기할 단계가 아닙니다.</strong> 적극적으로 치료한 환자들 중 완전관해를 달성한 사례가 있습니다. 지금 가장 중요한 것은 <span class="highlight">MSI 검사</span>와 <span class="highlight">유전자 검사</span> 결과를 빨리 확인하는 것이에요. 이 결과가 치료 전략을 완전히 바꿀 수 있습니다.</p>
+  <p style="margin-top:8px;">아버지는 17년간 세 번의 암을 이겨내신 분이에요. 그 자체가 통계에 잡히지 않는 강점입니다.</p>
+</div>
+
+<div class="footer">
+  <p>2026년 4월 14일 작성 | 공개 의학 문헌 기반 참고 자료<br>의료 결정은 반드시 담당 전문의와 상의하세요</p>
+</div>
+
+</body>
+</html>

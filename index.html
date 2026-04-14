@@ -6,7 +6,7 @@
 <title>내일 면담 질문지</title>
 <style>
   :root {
-    --bg: #f8f9fa; --surface: #fff; --text: #1a1a2e; --muted: #6c757d;
+    --bg: #f8f9fa; --surface: #fff; --text: #1a1a2e; --muted: #565e67;
     --accent: #2b5797; --accent-light: #e8eef6;
     --danger: #c0392b; --danger-light: #fdf0ef;
     --hope: #1e7e34; --hope-light: #eaf6ec;
@@ -34,7 +34,7 @@
   .card-warn { border-left: 4px solid var(--warn); background: var(--warn-light); }
   .card-accent { border-left: 4px solid var(--accent); background: var(--accent-light); }
   .tag {
-    display: inline-block; font-size: 0.65rem; font-weight: 700;
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
     padding: 2px 7px; border-radius: 3px; margin-bottom: 4px; letter-spacing: 0.3px;
   }
   .tag-danger { background: var(--danger); color: white; }
@@ -55,7 +55,7 @@
     border-radius: var(--radius); padding: 12px 16px; margin-bottom: 14px; font-size: 0.9rem;
   }
   .checklist { list-style: none; padding: 0; }
-  .checklist li { padding: 5px 0; font-size: 0.88rem; display: flex; align-items: flex-start; gap: 8px; }
+  .checklist li { padding: 8px 0; min-height: 44px; font-size: 0.88rem; display: flex; align-items: flex-start; gap: 8px; }
   .checklist input[type="checkbox"] {
     width: 18px; height: 18px; margin-top: 3px; flex-shrink: 0;
     accent-color: var(--accent); cursor: pointer;
@@ -100,8 +100,8 @@
 <h2>PART 0. 오늘 밤 병동에서 확인</h2>
 <!-- ============================================================ -->
 
-<div class="card card-danger">
-  <span class="tag tag-danger">간호사/전공의에게 물어보세요</span>
+<div class="card card-warn">
+  <span class="tag tag-warn">간호사/전공의에게 물어보세요</span>
   <ul class="checklist">
     <li><input type="checkbox"><span><strong>척추 MRI</strong> — "다리가 뻐근한 증상이 있는데, 척추 MRI를 안 찍어봐도 되는 건가요?" (척수 눌림 배제)</span></li>
     <li><input type="checkbox"><span><strong>혈전 예방 주사</strong> — "혈전 예방 주사 맞고 있나요?" (암 환자 입원 시 필수)</span></li>

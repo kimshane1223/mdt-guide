@@ -6,7 +6,7 @@
 <title>재정지원 + 복지혜택</title>
 <style>
   :root {
-    --bg: #f8f9fa; --surface: #fff; --text: #1a1a2e; --muted: #6c757d;
+    --bg: #f8f9fa; --surface: #fff; --text: #1a1a2e; --muted: #565e67;
     --accent: #2b5797; --accent-light: #e8eef6;
     --danger: #c0392b; --danger-light: #fdf0ef;
     --hope: #1e7e34; --hope-light: #eaf6ec;
@@ -35,7 +35,7 @@
   .card-hope { border-left: 4px solid var(--hope); background: var(--hope-light); }
   .card-accent { border-left: 4px solid var(--accent); background: var(--accent-light); }
   .tag {
-    display: inline-block; font-size: 0.65rem; font-weight: 700;
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
     padding: 2px 7px; border-radius: 3px; margin-bottom: 4px; letter-spacing: 0.3px;
   }
   .tag-danger { background: var(--danger); color: white; }
@@ -46,7 +46,7 @@
   th, td { padding: 7px 10px; text-align: left; border-bottom: 1px solid var(--border); }
   th { background: #f1f3f5; font-weight: 600; font-size: 0.78rem; color: var(--muted); }
   .checklist { list-style: none; padding: 0; }
-  .checklist li { padding: 5px 0; font-size: 0.88rem; display: flex; align-items: flex-start; gap: 8px; }
+  .checklist li { padding: 8px 0; min-height: 44px; font-size: 0.88rem; display: flex; align-items: flex-start; gap: 8px; }
   .checklist input[type="checkbox"] {
     width: 18px; height: 18px; margin-top: 3px; flex-shrink: 0;
     accent-color: var(--accent); cursor: pointer;
@@ -112,14 +112,14 @@
 </div>
 
 <div class="call-box">
-  <p class="call-num">1. 129</p>
+  <p class="call-num">1. <a href="tel:129" style="color:inherit;text-decoration:none;">129</a></p>
   <p class="call-what">긴급복지지원 — 생계비 + 의료비 동시 신청</p>
   <p class="call-say">"아버지가 암 4기로 입원 중이고 일을 못 해서 소득이 끊겼습니다. 긴급복지지원 생계비와 의료비를 신청하고 싶습니다."</p>
   <p class="call-effect">기대: 생계비 <span class="money">월 ~200만원</span> + 의료비 <span class="money">최대 300만원</span>. 즉시 지급 가능.</p>
 </div>
 
 <div class="call-box">
-  <p class="call-num">2. 1577-1000</p>
+  <p class="call-num">2. <a href="tel:1577-1000" style="color:inherit;text-decoration:none;">1577-1000</a></p>
   <p class="call-what">국민건강보험공단 — 두 건을 한 전화로</p>
   <p class="call-say">"암 4기 환자입니다. (1) 재난적 의료비 지원 신청하려고요. (2) 소득이 끊겨서 건강보험료 조정도 받고 싶습니다."</p>
   <p class="call-effect">기대: 재난적 의료비 <span class="money">연간 최대 5,000만원</span> + 보험료 즉시 인하.</p>
@@ -127,7 +127,7 @@
 </div>
 
 <div class="call-box">
-  <p class="call-num">3. 1600-5500</p>
+  <p class="call-num">3. <a href="tel:1600-5500" style="color:inherit;text-decoration:none;">1600-5500</a></p>
   <p class="call-what">신용회복위원회 — 대출 상환유예</p>
   <p class="call-say">"암 4기로 입원 중이라 대출을 갚을 수 없습니다. 질병 사유 신속채무조정을 신청하고 싶습니다. 딸이 대리로 전화드리는데 가능한가요?"</p>
   <p class="call-effect">기대: 대출 <span class="money">최대 3년 상환유예</span> + 이자율 인하 + 추심 즉시 중단.</p>
@@ -144,7 +144,7 @@
 </div>
 
 <div class="call-box">
-  <p class="call-num">5. 1355</p>
+  <p class="call-num">5. <a href="tel:1355" style="color:inherit;text-decoration:none;">1355</a></p>
   <p class="call-what">국민연금공단 — 납부예외 신청</p>
   <p class="call-say">"질병으로 소득이 없어서 국민연금 납부예외 신청하려고요."</p>
   <p class="call-effect">기대: <span class="money">월 납부금 중단</span> (나가는 돈을 막는 것도 돈).</p>

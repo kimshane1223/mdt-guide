@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>재정지원 + 복지혜택</title>
+<style>
+  :root {
+    --bg: #f8f9fa; --surface: #fff; --text: #1a1a2e; --muted: #6c757d;
+    --accent: #2b5797; --accent-light: #e8eef6;
+    --danger: #c0392b; --danger-light: #fdf0ef;
+    --hope: #1e7e34; --hope-light: #eaf6ec;
+    --warn: #b8860b; --warn-light: #fef9ed;
+    --border: #dee2e6; --radius: 10px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.75; padding: 16px; max-width: 720px; margin: 0 auto; font-size: 15px;
+  }
+  h1 { font-size: 1.4rem; font-weight: 800; margin-bottom: 2px; }
+  .subtitle { font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+  h2 {
+    font-size: 1.1rem; font-weight: 700; margin: 24px 0 10px;
+    padding: 8px 12px; background: var(--accent); color: white; border-radius: 6px;
+  }
+  h3 { font-size: 1rem; font-weight: 700; margin: 16px 0 8px; color: var(--accent); }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px;
+  }
+  .card-danger { border-left: 4px solid var(--danger); background: var(--danger-light); }
+  .card-warn { border-left: 4px solid var(--warn); background: var(--warn-light); }
+  .card-hope { border-left: 4px solid var(--hope); background: var(--hope-light); }
+  .card-accent { border-left: 4px solid var(--accent); background: var(--accent-light); }
+  .tag {
+    display: inline-block; font-size: 0.65rem; font-weight: 700;
+    padding: 2px 7px; border-radius: 3px; margin-bottom: 4px; letter-spacing: 0.3px;
+  }
+  .tag-danger { background: var(--danger); color: white; }
+  .tag-warn { background: var(--warn); color: white; }
+  .tag-accent { background: var(--accent); color: white; }
+  .tag-hope { background: var(--hope); color: white; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.88rem; }
+  th, td { padding: 7px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { background: #f1f3f5; font-weight: 600; font-size: 0.78rem; color: var(--muted); }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 5px 0; font-size: 0.88rem; display: flex; align-items: flex-start; gap: 8px; }
+  .checklist input[type="checkbox"] {
+    width: 18px; height: 18px; margin-top: 3px; flex-shrink: 0;
+    accent-color: var(--accent); cursor: pointer;
+  }
+  .divider { border: none; border-top: 2px solid var(--border); margin: 20px 0; }
+  .footer {
+    margin-top: 24px; padding: 12px; background: #f1f3f5;
+    border-radius: var(--radius); font-size: 0.75rem; color: var(--muted); text-align: center;
+  }
+  .link-card {
+    background: var(--accent-light); border: 1px solid var(--accent);
+    border-radius: var(--radius); padding: 10px 16px; margin-bottom: 14px;
+    font-size: 0.85rem; text-align: center;
+  }
+  .link-card a { color: var(--accent); font-weight: 700; }
+  .call-box {
+    background: var(--surface); border: 2px solid var(--accent);
+    border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px;
+  }
+  .call-num { font-size: 1.3rem; font-weight: 800; color: var(--accent); }
+  .call-what { font-weight: 600; margin-top: 4px; }
+  .call-say { font-size: 0.85rem; color: var(--muted); margin-top: 4px; border-left: 3px solid var(--border); padding-left: 10px; }
+  .call-effect { font-size: 0.85rem; margin-top: 6px; }
+  .money { color: var(--hope); font-weight: 700; }
+  details { margin: 6px 0; }
+  details summary { cursor: pointer; font-weight: 600; font-size: 0.9rem; padding: 8px 0; color: var(--accent); }
+  details[open] summary { margin-bottom: 6px; }
+  @media print {
+    body { padding: 10px; font-size: 11pt; }
+    .card, .call-box { break-inside: avoid; }
+    h2 { background: none; color: var(--accent); border: 2px solid var(--accent); }
+  }
+  @media (max-width: 480px) {
+    body { padding: 10px; font-size: 14px; }
+    h1 { font-size: 1.2rem; }
+    table { font-size: 0.82rem; display: block; overflow-x: auto; }
+    th, td { padding: 5px 7px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>재정지원 + 복지혜택</h1>
+<p class="subtitle">아버지 치료비 + 생활비 + 대출 — 받을 수 있는 것 정리</p>
+
+<div class="link-card">
+  면담 질문지는 <a href="index.html">여기</a> | 배경지식은 <a href="study.html">여기</a>
+</div>
+
+<!-- ============================================================ -->
+<h2>PART 1. 이번 주 전화 리스트 (남자친구)</h2>
+<!-- ============================================================ -->
+
+<div class="card card-warn">
+  <span class="tag tag-warn">전화 전 준비물</span>
+  <p>전화할 때 필요한 정보: 환자 이름, 주민번호, 병원명(가천대 길병원), 진단명(십이지장 선암 4기), 입원일. 메모지 준비.</p>
+</div>
+
+<div class="call-box">
+  <p class="call-num">1. 129</p>
+  <p class="call-what">긴급복지지원 — 생계비 + 의료비 동시 신청</p>
+  <p class="call-say">"아버지가 암 4기로 입원 중이고 일을 못 해서 소득이 끊겼습니다. 긴급복지지원 생계비와 의료비를 신청하고 싶습니다."</p>
+  <p class="call-effect">기대: 생계비 <span class="money">월 ~200만원</span> + 의료비 <span class="money">최대 300만원</span>. 즉시 지급 가능.</p>
+</div>
+
+<div class="call-box">
+  <p class="call-num">2. 1577-1000</p>
+  <p class="call-what">국민건강보험공단 — 두 건을 한 전화로</p>
+  <p class="call-say">"암 4기 환자입니다. (1) 재난적 의료비 지원 신청하려고요. (2) 소득이 끊겨서 건강보험료 조정도 받고 싶습니다."</p>
+  <p class="call-effect">기대: 재난적 의료비 <span class="money">연간 최대 5,000만원</span> + 보험료 즉시 인하.</p>
+  <p style="font-size:0.82rem; color:var(--muted); margin-top:4px;">재난적 의료비 기한: 퇴원 후 180일 이내. 입원 중에도 신청 가능.</p>
+</div>
+
+<div class="call-box">
+  <p class="call-num">3. 1600-5500</p>
+  <p class="call-what">신용회복위원회 — 대출 상환유예</p>
+  <p class="call-say">"암 4기로 입원 중이라 대출을 갚을 수 없습니다. 질병 사유 신속채무조정을 신청하고 싶습니다. 딸이 대리로 전화드리는데 가능한가요?"</p>
+  <p class="call-effect">기대: 대출 <span class="money">최대 3년 상환유예</span> + 이자율 인하 + 추심 즉시 중단.</p>
+  <p style="font-size:0.82rem; color:var(--muted); margin-top:4px;">필요: 90일 이상 입원 필요 진단서 (담당의에게 발급 요청). 대리 신청 시 위임장 + 환자 인감증명 + 대리인 신분증.</p>
+  <p style="font-size:0.82rem; color:var(--danger); margin-top:4px; font-weight:600;">연체 전에 신청하는 게 유리합니다. 연체가 시작되면 옵션이 좁아집니다.</p>
+</div>
+
+<div class="call-box">
+  <p class="call-num">4. 보험사 (가입한 곳)</p>
+  <p class="call-what">보험 전수 확인 — 실손 + 암보험 + 입원일당</p>
+  <p class="call-say">"암 4기 진단받았습니다. 가입된 보험 전체를 확인하고 싶습니다. 실손보험, 암보험 진단금, 입원일당 특약 등 청구 가능한 것 전부 알려주세요."</p>
+  <p class="call-effect">기대: 실손 의료비 환급 + 암보험 진단금 <span class="money">수백~수천만원</span> 가능.</p>
+  <p style="font-size:0.82rem; color:var(--muted); margin-top:4px;">2009년 대장암이 최초 암이므로, 그 이후 가입 보험의 "재진단" 조항 확인 필수. 보험증권 전부 찾아서 전화.</p>
+</div>
+
+<div class="call-box">
+  <p class="call-num">5. 1355</p>
+  <p class="call-what">국민연금공단 — 납부예외 신청</p>
+  <p class="call-say">"질병으로 소득이 없어서 국민연금 납부예외 신청하려고요."</p>
+  <p class="call-effect">기대: <span class="money">월 납부금 중단</span> (나가는 돈을 막는 것도 돈).</p>
+</div>
+
+<hr class="divider">
+
+<!-- ============================================================ -->
+<h2>PART 2. 사회사업팀에 가져갈 체크리스트 (상은이)</h2>
+<!-- ============================================================ -->
+
+<div class="card card-accent">
+  <span class="tag tag-accent">사용법</span>
+  <p>사회사업팀(1577-2299) 방문할 때 이 리스트를 핸드폰으로 보여주면서: <strong>"저희가 해당될 수 있는 것들을 정리해왔는데, 빠진 게 있는지 확인해주시겠어요?"</strong></p>
+</div>
+
+<div class="card">
+  <h3>의료비 관련</h3>
+  <ul class="checklist">
+    <li><input type="checkbox"><span><strong>산정특례 등록</strong> — 본인부담 5%. 확진 후 30일 이내 신청 시 소급 적용. 등록 여부 확인 필요</span></li>
+    <li><input type="checkbox"><span><strong>재난적 의료비</strong> — 연간 최대 5,000만원 (소득 기준). 이미 건보공단에 전화했는지 여부 확인</span></li>
+    <li><input type="checkbox"><span><strong>본인부담상한제</strong> — 소득 1분위면 연간 89만원 초과분 전액 환급. 소득분위 확인 필요</span></li>
+    <li><input type="checkbox"><span><strong>암환자 의료비 지원사업</strong> — 보건소 신청, 연간 300만원. 청주 보건소에 신청해야 하는지?</span></li>
+    <li><input type="checkbox"><span><strong>기초생활수급자 의료급여</strong> — 수급자 되면 본인부담 거의 0원. 소득 단절 상태인데 해당되나요?</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>생활비 관련</h3>
+  <ul class="checklist">
+    <li><input type="checkbox"><span><strong>긴급복지지원</strong> — 생계비 월 ~200만원. 이미 129에 전화했는지 확인. 중복 신청 안 되게</span></li>
+    <li><input type="checkbox"><span><strong>기초생활수급자 생계급여</strong> — 소득인정액 기준 충족 시. 긴급복지 후 전환 가능한지?</span></li>
+    <li><input type="checkbox"><span><strong>주거급여</strong> — 기초수급 생계급여 탈락해도 주거급여만 별도로 받을 수 있나요? (소득기준 48%)</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>병원 내 서비스</h3>
+  <ul class="checklist">
+    <li><input type="checkbox"><span><strong>간호간병통합서비스 병동</strong> — 간병인 비용 0원(건보 부담). 이 병동으로 옮길 수 있나요? (딸이 간병에서 벗어나 일할 수 있음)</span></li>
+    <li><input type="checkbox"><span><strong>영양 상담</strong> — 십이지장 수술 이력 + 항암 시작 → 영양 관리 필요. 급여 적용되나요?</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>기타</h3>
+  <ul class="checklist">
+    <li><input type="checkbox"><span><strong>건강보험료 조정</strong> — 소득 끊기면 보험료 인하/면제 가능. 이미 전화했는지 확인</span></li>
+    <li><input type="checkbox"><span><strong>저희 상황에 해당되는 다른 지원 프로그램</strong>이 있나요? (지자체 자체사업, 민간 재단 등)</span></li>
+    <li><input type="checkbox"><span><strong>신청 순서</strong> — 위 제도들을 어떤 순서로 신청해야 중복이 안 되나요?</span></li>
+  </ul>
+</div>
+
+<hr class="divider">
+
+<!-- ============================================================ -->
+<h2>PART 3. 나중에 — 잊지 말고 챙길 것</h2>
+<!-- ============================================================ -->
+
+<p style="font-size:0.85rem; color:var(--muted); margin-bottom:12px;">지금 당장은 아니지만, 시기가 되면 챙겨야 할 것들.</p>
+
+<div class="card">
+  <table>
+    <tr><th>시기</th><th>항목</th><th>내용</th></tr>
+    <tr><td>MSI 결과 후</td><td><strong>키트루다 보험 적용</strong></td><td>MSI-H 확인 시 면역항암제 급여 가능 (2차 치료부터). 1차는 비급여일 수 있으므로 MSD 환자지원프로그램(PAP) 확인</td></tr>
+    <tr><td>유전검사 결과 후</td><td><strong>린치증후군 가족검사</strong></td><td>확진 시 직계가족 유전자 검사 건보 급여 가능. "검사비 보험 됩니다"</td></tr>
+    <tr><td>항암 시작 후</td><td><strong>장애인 등록 검토</strong></td><td>골전이로 기능 제한 시 지체장애 가능. 등록되면: 장애인연금 월 ~43만원, 공과금 감면, 활동지원</td></tr>
+    <tr><td>퇴원 후</td><td><strong>통원 교통비</strong></td><td>청주-인천 통원 시 교통비 지원 (암환자 의료비 사업 내 월 ~10만원)</td></tr>
+    <tr><td>연말</td><td><strong>의료비 세액공제</strong></td><td>상은이가 아버지를 부양가족 등록 → 의료비 전액 세액공제 가능 (종합소득세 신고 시). 비급여 포함. 연간 수백만원 환급 가능</td></tr>
+    <tr><td>채무조정 실패 시</td><td><strong>개인파산 검토</strong></td><td>소득 없으면 개인파산이 개인회생보다 적합. 대한법률구조공단(132) 무료 대리. 질병 사유 채무는 면책 대상</td></tr>
+  </table>
+</div>
+
+<hr class="divider">
+
+<!-- ============================================================ -->
+<h2>참고: 제도 상세</h2>
+<!-- ============================================================ -->
+
+<details>
+  <summary>산정특례 상세 (터치해서 펼치기)</summary>
+  <div class="card">
+    <table>
+      <tr><td>본인부담</td><td>급여 항목 전부 <strong>5%</strong></td></tr>
+      <tr><td>기간</td><td>확진일로부터 5년 (재등록 가능)</td></tr>
+      <tr><td>소득 기준</td><td>없음. 암 확진만으로 대상</td></tr>
+      <tr><td>소급</td><td>확진 후 30일 이내 신청 → 확진일부터 적용, 이미 낸 돈 환급</td></tr>
+      <tr><td>비급여</td><td>산정특례 적용 안 됨 (별도)</td></tr>
+    </table>
+  </div>
+</details>
+
+<details>
+  <summary>재난적 의료비 상세</summary>
+  <div class="card">
+    <table>
+      <tr><td>한도</td><td>연간 최대 <strong>5,000만원</strong></td></tr>
+      <tr><td>지원 비율</td><td>기초수급/차상위 80%, 중위소득 50% 이하 70%, 50~100% 60%</td></tr>
+      <tr><td>소득 기준</td><td>중위소득 100% 이하 (개별심사 시 200%까지)</td></tr>
+      <tr><td>재산 기준</td><td>7억원 이하</td></tr>
+      <tr><td>기한</td><td>퇴원 후 <strong>180일 이내</strong> (입원 중 신청 가능)</td></tr>
+      <tr><td>신청</td><td>건보공단 지사 방문 또는 1577-1000</td></tr>
+    </table>
+  </div>
+</details>
+
+<details>
+  <summary>긴급복지지원 상세</summary>
+  <div class="card">
+    <table>
+      <tr><td>생계비</td><td>4인가구 월 약 <strong>200만원</strong></td></tr>
+      <tr><td>의료비</td><td>최대 <strong>300만원</strong></td></tr>
+      <tr><td>기간</td><td>최대 6개월 (위기 지속 시 연장)</td></tr>
+      <tr><td>소득 기준</td><td>중위소득 75% 이하</td></tr>
+      <tr><td>위기 사유</td><td>중증질환으로 소득 단절 → 해당</td></tr>
+      <tr><td>신청</td><td>주민센터 또는 129</td></tr>
+    </table>
+  </div>
+</details>
+
+<details>
+  <summary>신속채무조정 (질병 특례) 상세</summary>
+  <div class="card">
+    <table>
+      <tr><td>자격</td><td>90일 이상 입원 필요 질병 진단 + 연체 30일 이하</td></tr>
+      <tr><td>유예</td><td>최장 <strong>3년</strong> (6개월 단위 갱신)</td></tr>
+      <tr><td>이자</td><td>약정이율 30~50% 인하 (최저 연 3.25%)</td></tr>
+      <tr><td>추심</td><td>신청 다음날부터 <strong>즉시 중단</strong></td></tr>
+      <tr><td>원금 감면</td><td>없음 (유예만). 추후 워크아웃 전환 시 감면 가능</td></tr>
+      <tr><td>필요 서류</td><td>진단서("90일 이상 입원 필요" 명시), 신분증, 소득 증빙</td></tr>
+      <tr><td>대리 신청</td><td>가능 (위임장 + 환자 인감증명 + 대리인 신분증)</td></tr>
+    </table>
+    <p style="font-size:0.82rem; color:var(--danger); margin-top:8px; font-weight:600;">연체가 시작되기 전에 신청하세요. 90일 이상 연체되면 개인워크아웃(원금 감면 가능하지만 절차 복잡)으로 전환됩니다.</p>
+  </div>
+</details>
+
+<details>
+  <summary>중복수급 주의사항</summary>
+  <div class="card">
+    <table>
+      <tr><th>조합</th><th>가능?</th><th>주의</th></tr>
+      <tr><td>산정특례 + 본인부담상한제 + 재난적 의료비</td><td>전부 가능</td><td>의료비 거의 0원 가능</td></tr>
+      <tr><td>긴급복지 → 기초수급</td><td>순차</td><td>긴급복지 먼저, 수급 확정 시 전환</td></tr>
+      <tr><td>재난적 의료비 + 의료급여</td><td>불가</td><td>의료급여 되면 재난적 의료비 대상 제외. <strong>재난적 의료비를 먼저 쓸 것</strong></td></tr>
+      <tr><td>긴급복지 + 실업급여</td><td>불가</td><td>실업급여 수급 중이면 긴급복지 제외</td></tr>
+    </table>
+    <p style="font-size:0.82rem; color:var(--muted); margin-top:6px;">순서가 중요합니다. 사회사업팀에서 상황에 맞는 순서를 안내받으세요.</p>
+  </div>
+</details>
+
+<hr class="divider">
+
+<div class="card card-accent">
+  <span class="tag tag-accent">핵심</span>
+  <p><strong>사회사업팀(1577-2299)이 원스톱 창구.</strong> PART 2 체크리스트를 들고 가서 확인받으면, 신청 순서와 서류까지 안내받을 수 있다.</p>
+</div>
+
+<div class="footer">
+  <p>2026년 4월 14일 작성 | 보건복지부, 건보공단, 신용회복위원회, 법제처 등 공식 자료 기반<br>
+  개별 상황에 따라 달라질 수 있으므로 각 기관에서 직접 확인하세요</p>
+</div>
+
+</body>
+</html>
